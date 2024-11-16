@@ -45,8 +45,8 @@ llm=st.sidebar.selectbox("Select Open Source model",["gemma2-9b-it","mixtral-8x7
 
 
 ## Adjust response parameter
-temperature=st.sidebar.slider("Temperature",min_value=0.0,max_value=1.0,value=0.7)
-max_tokens = st.sidebar.slider("Max Tokens", min_value=50, max_value=300, value=150)
+temperature=st.sidebar.slider("Temperature: This controls how creative or random the model's responses are. Lower values (e.g., 0.2) make the output focused and predictable, while higher values (e.g., 0.8 or 1.0) make it more diverse and creative.",min_value=0.0,max_value=1.0,value=0.7)
+max_tokens = st.sidebar.slider("Max Tokens: This limits the length of the model’s response. A smaller value produces shorter, concise answers, while a larger value allows for longer, more detailed outputs.", min_value=50, max_value=300, value=150)
 
 ## MAin interface for user input
 st.write("Go ahead and ask any question")
