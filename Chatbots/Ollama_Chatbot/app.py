@@ -49,8 +49,7 @@ temperature=st.sidebar.slider("Temperature: This controls how creative or random
 max_tokens = st.sidebar.slider("Max Tokens: This limits the length of the model’s response. A smaller value produces shorter, concise answers, while a larger value allows for longer, more detailed outputs.", min_value=50, max_value=300, value=150)
 
 ## MAin interface for user input
-st.write("Go ahead and ask any question")
-user_input=st.text_input("You:")
+user_input=st.text_input("Go ahead and ask any question")
 
 
 
