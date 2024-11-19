@@ -27,9 +27,9 @@ prompt=ChatPromptTemplate.from_messages(
     ]
 )
 
-def generate_response(question,llm,temperature,max_tokens):
+def generate_response(question,engine,temperature,max_tokens):
     # llm=Ollama(model=llm)
-    llm=ChatGroq(model="Gemma2-9b-It",groq_api_key=groq_api_key)
+    llm=ChatGroq(model=engine,groq_api_key=groq_api_key)
     output_parser=StrOutputParser()
     chain=prompt|llm|output_parser
     answer=chain.invoke({'question':question})
@@ -40,7 +40,7 @@ st.title("Enhanced Q&A Chatbot With Open-Source Model")
 
 
 ## Select the OpenAI model
-llm=st.sidebar.selectbox("Select Open Source model",["gemma2-9b-it","mixtral-8x7b-32768","llama-3.2-90b-text-preview","distil-whisper-large-v3-en","whisper-large-v3-turbo"])
+llm=st.sidebar.selectbox("Select Open Source model",["gemma2-9b-it","mixtral-8x7b-32768","llama-3.2-90b-text-preview"])
 # llm=st.sidebar.selectbox("Select Open Source model",["gemma2:2b"])
 
 
