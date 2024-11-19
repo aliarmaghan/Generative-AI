@@ -11,3 +11,4 @@ pypdf
 faiss-cpu
 langchain_chroma
 chromadb
+pysqlite3-binary
