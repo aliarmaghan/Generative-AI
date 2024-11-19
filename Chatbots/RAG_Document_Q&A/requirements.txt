@@ -10,4 +10,4 @@ langchain_huggingface
 pypdf
 faiss-cpu
 langchain_chroma
-SQLite==3.35
+SQLite==3.34.0
