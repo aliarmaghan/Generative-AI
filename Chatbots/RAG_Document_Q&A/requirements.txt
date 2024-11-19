@@ -9,3 +9,4 @@ langchain-groq
 langchain_huggingface
 pypdf
 faiss-cpu
+langchain_chroma
