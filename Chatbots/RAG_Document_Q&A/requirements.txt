@@ -10,5 +10,3 @@ langchain_huggingface
 pypdf
 faiss-cpu
 langchain_chroma
-chromadb
-sqlite-database

@@ -12,12 +12,8 @@ from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.document_loaders import PyPDFLoader
 import os
-import chromadb.api
+from langchain_community.vectorstores import FAISS
 
-chromadb.api.client.SharedSystemClient.clear_system_cache()
-__import__('pysqlite3')
-import sys
-sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -59,7 +55,7 @@ if uploaded_files:
 # Split and create embeddings for the documents
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=5000, chunk_overlap=500)
     splits = text_splitter.split_documents(documents)
-    vectorstore = Chroma.from_documents(documents=splits, embedding=embeddings)
+    vectorstore = FAISS.from_documents(documents=splits, embedding=embeddings)
     retriever = vectorstore.as_retriever()    
 
     contextualize_q_system_prompt=(
