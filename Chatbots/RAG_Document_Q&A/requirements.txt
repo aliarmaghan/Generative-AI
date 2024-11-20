@@ -10,3 +10,4 @@ langchain_huggingface
 pypdf
 faiss-cpu
 langchain_chroma==0.1.2
+sqlite3 == 3.35.0
