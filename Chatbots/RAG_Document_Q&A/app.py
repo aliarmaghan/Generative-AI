@@ -51,7 +51,6 @@ if uploaded_files:
         loader=PyPDFLoader(temppdf)
         docs=loader.load()
         documents.extend(docs)
-
 # Split and create embeddings for the documents
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=5000, chunk_overlap=500)
     splits = text_splitter.split_documents(documents)
