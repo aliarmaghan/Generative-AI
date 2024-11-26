@@ -1,0 +1,14 @@
+langchain
+python-dotenv
+langchain-community
+bs4
+arxiv
+langchain-text-splitters
+chromadb
+sentence_transformers
+langchain_huggingface
+faiss-cpu
+langchain_chroma
+wikipedia
+langchain_groq
+streamlit
