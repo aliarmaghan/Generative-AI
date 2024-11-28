@@ -35,8 +35,13 @@ if radio_opt.index(selected_opt)==1:
     mysql_password=st.sidebar.text_input("MYSQL password",type="password")
     mysql_db=st.sidebar.text_input("MySQL database")
 elif radio_opt.index(selected_opt)==2:
-    st.warning("Working on it")
     db_uri=SQLSERVER
+    if not db_uri:
+        st.info("Please enter the database information and uri")
+    sqlserver_server=st.sidebar.text_input("Provide Sql Server Server")
+    sqlserver_user=st.sidebar.text_input("Sql Server User")
+    # sqlserver_password=st.sidebar.text_input("Sql Server password",type="password")
+    sqlserver_db=st.sidebar.text_input("Sql Server database")
 else:
     db_uri=LOCALDB
 
@@ -45,7 +50,8 @@ else:
 llm=ChatGroq(groq_api_key=groq_api_key,model="llama3-8b-8192",streaming=True)
 
 @st.cache_resource(ttl="2h")
-def configure_db(db_uri,mysql_host=None,mysql_user=None,mysql_password=None,mysql_db=None):
+def configure_db(db_uri,mysql_host=None,mysql_user=None,mysql_password=None,mysql_db=None,sqlserver_driver=None,sqlserver_server=None,
+                sqlserver_user=None,sqlserver_password=None,sqlserver_db=None):
     if db_uri==LOCALDB:
         dbfilepath=(Path(__file__).parent/"student.db").absolute()
         print(dbfilepath)
@@ -56,13 +62,18 @@ def configure_db(db_uri,mysql_host=None,mysql_user=None,mysql_password=None,mysq
             st.error("Please provide all MySQL connection details.")
             st.stop()
         return SQLDatabase(create_engine(f"mysql+mysqlconnector://{mysql_user}:{mysql_password}@{mysql_host}/{mysql_db}"))   
+    elif db_uri==SQLSERVER:
+        if not (sqlserver_server and sqlserver_user and sqlserver_db):
+            st.error("Please provide all SQL Server connection details.")
+            st.stop()
+        return SQLDatabase(create_engine(f"mssql+pyodbc://{sqlserver_user}@{sqlserver_server}/{sqlserver_db}?ddriver=ODBC+Driver+17+for+SQL+Server"))
 
-
+# :{sqlserver_password}
 if db_uri==MYSQL:
     db=configure_db(db_uri,mysql_host,mysql_user,mysql_password,mysql_db)
 elif db_uri==SQLSERVER:
-    # db=configure_db(db_uri,mysql_host,mysql_user,mysql_password,mysql_db)
-    st.info("Under Maintenance")
+    db=configure_db(db_uri,sqlserver_server,sqlserver_user,sqlserver_db)
+    # st.info("Under Maintenance")
 else:
     db=configure_db(db_uri)
 
@@ -79,17 +90,17 @@ agent=create_sql_agent(
 if "messages" not in st.session_state or st.sidebar.button("Clear message history"):
     st.session_state["messages"] = [{"role": "assistant", "content": "How can I help you?"}]
 
-for msg in st.session_state.messages:
-    st.chat_message(msg["role"]).write(msg["content"])
+    for msg in st.session_state.messages:
+        st.chat_message(msg["role"]).write(msg["content"])
 
-user_query=st.chat_input(placeholder="Ask anything from the database")
+    user_query=st.chat_input(placeholder="Ask anything from the database")
 
-if user_query:
-    st.session_state.messages.append({"role": "user", "content": user_query})
-    st.chat_message("user").write(user_query)
+    if user_query:
+        st.session_state.messages.append({"role": "user", "content": user_query})
+        st.chat_message("user").write(user_query)
 
-    with st.chat_message("assistant"):
-        streamlit_callback=StreamlitCallbackHandler(st.container())
-        response=agent.run(user_query,callbacks=[streamlit_callback])
-        st.session_state.messages.append({"role":"assistant","content":response})
-        st.write(response)
+        with st.chat_message("assistant"):
+            streamlit_callback=StreamlitCallbackHandler(st.container())
+            response=agent.run(user_query,callbacks=[streamlit_callback])
+            st.session_state.messages.append({"role":"assistant","content":response})
+            st.write(response)
