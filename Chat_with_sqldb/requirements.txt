@@ -12,3 +12,4 @@ langchain_chroma
 wikipedia
 langchain_groq
 streamlit
+sqlalchemy
