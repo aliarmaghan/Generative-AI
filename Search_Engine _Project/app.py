@@ -6,6 +6,7 @@ from langchain_community.tools import ArxivQueryRun,WikipediaQueryRun,DuckDuckGo
 from langchain.agents import initialize_agent,AgentType
 from langchain.callbacks import StreamlitCallbackHandler
 from langchain_huggingface import HuggingFaceEmbeddings
+import time
 import os
 from dotenv import load_dotenv
 load_dotenv()
@@ -39,8 +40,27 @@ if "messages" not in st.session_state:
 for msg in st.session_state.messages:
     st.chat_message(msg["role"]).write(msg['content'])
 
+chat_box = st.chat_input("What do you want to do?")
+if "uploader_visible" not in st.session_state:
+    st.session_state["uploader_visible"] = False
+def show_upload(state:bool):
+    st.session_state["uploader_visible"] = state
+    
+with st.chat_message("system"):
+    cols= st.columns((3,1,1))
+    cols[0].write("Do you want to upload a file?")
+    cols[1].button("yes", use_container_width=True, on_click=show_upload, args=[True])
+    cols[2].button("no", use_container_width=True, on_click=show_upload, args=[False])
 
+if st.session_state["uploader_visible"]:
+    with st.chat_message("system"):
+        file = st.file_uploader("Upload your data")
+        if file:
+            with st.spinner("Processing your file"):
+                time.sleep(5) 
 if prompt:=st.chat_input(placeholder="What is machine learning?"):
+    # uploaded_file = st.file_uploader("📎 Attach a file", type=["txt", "pdf", "png", "jpg"], label_visibility="collapsed")
+
     st.session_state.messages.append({"role":"user","content":prompt})
     st.chat_message("user").write(prompt)
 
