@@ -90,17 +90,17 @@ agent=create_sql_agent(
 if "messages" not in st.session_state or st.sidebar.button("Clear message history"):
     st.session_state["messages"] = [{"role": "assistant", "content": "How can I help you?"}]
 
-    for msg in st.session_state.messages:
-        st.chat_message(msg["role"]).write(msg["content"])
+for msg in st.session_state.messages:
+    st.chat_message(msg["role"]).write(msg["content"])
 
-    user_query=st.chat_input(placeholder="Ask anything from the database")
+user_query=st.chat_input(placeholder="Ask anything from the database")
 
-    if user_query:
-        st.session_state.messages.append({"role": "user", "content": user_query})
-        st.chat_message("user").write(user_query)
+if user_query:
+    st.session_state.messages.append({"role": "user", "content": user_query})
+    st.chat_message("user").write(user_query)
 
-        with st.chat_message("assistant"):
-            streamlit_callback=StreamlitCallbackHandler(st.container())
-            response=agent.run(user_query,callbacks=[streamlit_callback])
-            st.session_state.messages.append({"role":"assistant","content":response})
-            st.write(response)
+    with st.chat_message("assistant"):
+        streamlit_callback=StreamlitCallbackHandler(st.container())
+        response=agent.run(user_query,callbacks=[streamlit_callback])
+        st.session_state.messages.append({"role":"assistant","content":response})
+        st.write(response)
