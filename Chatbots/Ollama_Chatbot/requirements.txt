@@ -9,3 +9,4 @@ langchain-groq
 langchain_huggingface
 pypdf
 faiss-cpu
+httpx==0.27.2
