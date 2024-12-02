@@ -32,6 +32,9 @@ Try more LangChain 🤝 Streamlit Agent examples at [github.com/langchain-ai/str
 
 embeddings=HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
 
+
+## Sidebar for settings
+
 if "messages" not in st.session_state:
     st.session_state["messages"]=[
         {"role":"assisstant","content":"Hi,I'm a chatbot who can search the web. How can I help you?"}
@@ -40,34 +43,14 @@ if "messages" not in st.session_state:
 for msg in st.session_state.messages:
     st.chat_message(msg["role"]).write(msg['content'])
 
-chat_box = st.chat_input("What do you want to do?")
-if "uploader_visible" not in st.session_state:
-    st.session_state["uploader_visible"] = False
-def show_upload(state:bool):
-    st.session_state["uploader_visible"] = state
-    
-with st.chat_message("system"):
-    cols= st.columns((3,1,1))
-    cols[0].write("Do you want to upload a file?")
-    cols[1].button("yes", use_container_width=True, on_click=show_upload, args=[True])
-    cols[2].button("no", use_container_width=True, on_click=show_upload, args=[False])
-
-if st.session_state["uploader_visible"]:
-    with st.chat_message("system"):
-        file = st.file_uploader("Upload your data")
-        if file:
-            with st.spinner("Processing your file"):
-                time.sleep(5) 
 if prompt:=st.chat_input(placeholder="What is machine learning?"):
-    # uploaded_file = st.file_uploader("📎 Attach a file", type=["txt", "pdf", "png", "jpg"], label_visibility="collapsed")
-
     st.session_state.messages.append({"role":"user","content":prompt})
     st.chat_message("user").write(prompt)
 
     llm=ChatGroq(groq_api_key=groq_api_key,model_name="Llama3-8b-8192",streaming=True)
     tools=[search,arxiv,wiki]
 
-    search_agent=initialize_agent(tools,llm,agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION,handling_parsing_errors=True)
+    search_agent=initialize_agent(tools,llm,agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION,handling_parsing_errors=False)
 
     with st.chat_message("assistant"):
         st_cb=StreamlitCallbackHandler(st.container(),expand_new_thoughts=False)
