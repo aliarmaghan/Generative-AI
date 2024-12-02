@@ -17,4 +17,5 @@ langchain_chroma
 wikipedia
 langchain_groq
 streamlit
-duckduckgo-search
+duckduckgo_search==5.3.1b1
+httpx==0.27.2
