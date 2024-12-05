@@ -7,6 +7,7 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 
 
 
+
 ## streamlit APP
 st.set_page_config(page_title="LangChain: Summarize Text From YT or Website", page_icon="🦜")
 st.title("🦜 LangChain: Summarize Text From YT or Website")
@@ -19,7 +20,7 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 llm = ChatGroq(groq_api_key=os.getenv("GROQ_API_KEY"),model="Gemma-7b-It")
-
+youtube_api_key=os.getenv("YOUTUBE_API_KEY")
 generic_url=st.text_input("URL",label_visibility="collapsed")
 
 
@@ -56,7 +57,9 @@ if st.button("Summarize"):
             with st.spinner("Waiting..."):
                 ## loading the website or yt video data
                 if "youtube.com" in generic_url:
-                    loader=YoutubeLoader.from_youtube_url(generic_url,add_video_info=True)
+                    loader=YoutubeLoader.from_youtube_url(generic_url,add_video_info=False,language="en")
+
+        
                 else:
                     loader=UnstructuredURLLoader(urls=[generic_url],ssl_verify=False,
                                                  headers={"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 13_5_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"})
@@ -67,5 +70,8 @@ if st.button("Summarize"):
                 output_summary=chain.run(docs)
             
                 st.success(output_summary)
+        
         except Exception as e:
             st.exception(f"Exception:{e}")
+        except ValueError as ve:
+            st.error("Transcripts are not available for this video.")
