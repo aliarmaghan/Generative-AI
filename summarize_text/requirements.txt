@@ -10,3 +10,7 @@ langchain_huggingface
 pypdf
 faiss-cpu
 langchain_chroma
+validators==0.28.1
+youtube-transcript-api==0.6.2
+unstructured==0.16.9
+pytube==12.1.3
