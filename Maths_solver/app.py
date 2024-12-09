@@ -78,7 +78,7 @@ for msg in st.session_state.messages:
     st.chat_message(msg["role"]).write(msg['content'])
 
 ## Lets start the interaction
-question=st.text_area("Enter youe question:","I have 5 bananas and 7 grapes. I eat 2 bananas and give away 3 grapes. Then I buy a dozen apples and 2 packs of blueberries. Each pack of blueberries contains 25 berries. How many total pieces of fruit do I have at the end?")
+question=st.text_area("Enter youe question:")
 
 if st.button("find my answer"):
     if question:
