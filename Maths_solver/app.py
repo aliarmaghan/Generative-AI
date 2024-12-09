@@ -80,7 +80,7 @@ for msg in st.session_state.messages:
 ## Lets start the interaction
 question=st.text_area("Enter youe question:")
 
-if st.button("find my answer"):
+if st.button("Find Solution"):
     if question:
         with st.spinner("Generate response..."):
             st.session_state.messages.append({"role":"user","content":question})
