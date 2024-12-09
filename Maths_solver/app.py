@@ -71,7 +71,7 @@ assistant_agent=initialize_agent(
 
 if "messages" not in st.session_state:
     st.session_state["messages"]=[
-        {"role":"assistant","content":"Hi, I'm a MAth chatbot who can answer all your maths questions"}
+        {"role":"assistant","content":"Hi, I'm a Math chatbot who can answer all your maths questions"}
     ]
 
 for msg in st.session_state.messages:
