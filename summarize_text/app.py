@@ -40,8 +40,22 @@ Speech:{text}
 '''
 final_prompt_template=PromptTemplate(input_variables=['text'],template=final_prompt)
 
+### professionalize prompt template
+pro_prompt_template="""
+As a professional summarizer, create a concise and comprehensive summary of the provided text, be it an article, post, conversation, passage,or youtube transcript while adhering to these guidelines:
 
+Craft a summary that is detailed, thorough, in-depth, and complex, while maintaining clarity and conciseness.
 
+Incorporate main ideas and essential information, eliminating extraneous language and focusing on critical aspects.
+
+Rely strictly on the provided text, without including external information.
+
+Format the summary in paragraph form for easy understanding.
+
+Conclude your notes with [End of Notes, Message #X] to indicate completion, where "X" represents the total number of messages that I have sent. In other words, include a message counter where you start with #1 and add 1 to the message counter every time I send a message :{text}.
+
+"""
+pro_prompt = PromptTemplate(input_variables=['text'],template=pro_prompt_template)
 
 ## summarize work
 if st.button("Summarize"):
@@ -66,7 +80,7 @@ if st.button("Summarize"):
                 docs=loader.load()
                 
                 # Chain For Summarization
-                chain=load_summarize_chain(llm,chain_type="stuff",prompt=prompt)
+                chain=load_summarize_chain(llm,chain_type="stuff",prompt=pro_prompt)
                 output_summary=chain.run(docs)
             
                 st.success(output_summary)
