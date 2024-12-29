@@ -1,0 +1,11 @@
+python-dotenv
+ipykernel
+PyPDF2
+cassio
+datasets
+langchain
+openai
+tiktoken
+langchain-community
+langchain_huggingface
+langchain_groq
