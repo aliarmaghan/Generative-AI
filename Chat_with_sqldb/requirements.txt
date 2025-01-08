@@ -14,3 +14,5 @@ langchain_groq
 streamlit
 sqlalchemy
 langchain-cli
+pyodbc
+ipykernel 
