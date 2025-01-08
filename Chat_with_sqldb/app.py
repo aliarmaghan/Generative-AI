@@ -39,15 +39,7 @@ if radio_opt.index(selected_opt)==1:
     mysql_db=st.sidebar.text_input("MySQL database")
     connect_button = st.sidebar.button("Connect to MySQL Database")
 elif radio_opt.index(selected_opt)==2:
-    # db_uri=SQLSERVER
-    # if not db_uri:
-    #     st.info("Please enter the database information and uri")
-    # sqlserver_server=st.sidebar.text_input("Provide Sql Server Server")
-    # sqlserver_user=st.sidebar.text_input("Sql Server User")
-    # # sqlserver_password=st.sidebar.text_input("Sql Server password",type="password")
-    # sqlserver_db=st.sidebar.text_input("Sql Server database")
 
-    # Updated code:
     db_uri = SQLSERVER
     sqlserver_server = st.sidebar.text_input("Provide SQL Server Server")
     sqlserver_user = st.sidebar.text_input("SQL Server User (Leave blank for Windows Authentication)")
@@ -63,26 +55,7 @@ else:
 llm=ChatGroq(groq_api_key=groq_api_key,model_name="llama3-8b-8192",streaming=True)
 
 @st.cache_resource(ttl="2h")
-# def configure_db(db_uri,mysql_host=None,mysql_user=None,mysql_password=None,mysql_db=None,sqlserver_driver=None,sqlserver_server=None,
-#                 sqlserver_user=None,sqlserver_password=None,sqlserver_db=None):
-#     if db_uri==LOCALDB:
-#         dbfilepath=(Path(__file__).parent/"student.db").absolute()
-#         print(dbfilepath)
-#         creator = lambda: sqlite3.connect(f"file:{dbfilepath}?mode=ro", uri=True)
-#         return SQLDatabase(create_engine("sqlite:///", creator=creator))
-#     elif db_uri==MYSQL:
-#         if not (mysql_host and mysql_user and mysql_password and mysql_db):
-#             st.error("Please provide all MySQL connection details.")
-#             st.stop()
-#         return SQLDatabase(create_engine(f"mysql+mysqlconnector://{mysql_user}:{mysql_password}@{mysql_host}/{mysql_db}"))   
-#     elif db_uri==SQLSERVER:
-#         if not (sqlserver_server and sqlserver_user and sqlserver_db):
-#             st.error("Please provide all SQL Server connection details.")
-#             st.stop()
-#         return SQLDatabase(create_engine(f"mssql+pyodbc://{sqlserver_user}@{sqlserver_server}/{sqlserver_db}?ddriver=ODBC+Driver+17+for+SQL+Server"))
 
-
-    # updated Code: 
 def configure_db(db_uri, mysql_host=None, mysql_user=None, mysql_password=None, mysql_db=None, sqlserver_driver=None,
                 sqlserver_server=None, sqlserver_user=None, sqlserver_password=None, sqlserver_db=None):
     if db_uri == LOCALDB:
@@ -113,17 +86,6 @@ def configure_db(db_uri, mysql_host=None, mysql_user=None, mysql_password=None, 
         return SQLDatabase(create_engine(connection_string))
 
 
-# if db_uri==MYSQL:
-#     db=configure_db(db_uri,mysql_host,mysql_user,mysql_password,mysql_db)
-# elif db_uri==SQLSERVER:
-#     if sqlserver_user and sqlserver_password:
-#         db=configure_db(db_uri,sqlserver_server,sqlserver_user,sqlserver_password,sqlserver_db)
-#     else:
-#         db=configure_db(db_uri,sqlserver_server,sqlserver_db) 
-#     # st.info("Under Maintenance")
-# else:
-#     db=configure_db(db_uri)
-
 
 # Updated code:
 if connect_button:
@@ -144,17 +106,7 @@ if connect_button:
             st.error(f"Failed to connect to the database: {e}")
             db = None
 
-## toolkit
-# toolkit=SQLDatabaseToolkit(db=db,llm=llm)
 
-# agent=create_sql_agent(
-#     llm=llm,
-#     toolkit=toolkit,
-#     verbose=True,
-#     agent_type=AgentType.ZERO_SHOT_REACT_DESCRIPTION
-# )
-
-# updated code toolkits
 if db:
     try:
         # Create the toolkit
