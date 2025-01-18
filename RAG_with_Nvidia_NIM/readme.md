@@ -52,28 +52,34 @@ To get started, follow these steps to install the project and set up the environ
 
 ### Step-by-Step Installation
 1. **Clone the Repository:**
+
    ```bash
    git clone https://github.com/aliarmaghan/nvidia-nim-ai-deployment.git
    cd nvidia-nim-ai-deployment
 
 2. **Create and Activate the Environment:**
+
    ```bash
       conda create -p venv python=3.10
       conda activate venv
 
 3. **Install Dependencies:**
+
    ```bash
-   pip install -r requirements.txt
+      pip install -r requirements.txt
 
 4. **Generate Nvidia API Key:**
 
-- Log in to your Nvidia account.
-- Go to the API section, generate a new API key, and add it to your .env file:
+   - Log in to your Nvidia account.
+   - Go to the API section, generate a new API key, and add it to your .env file:
+
    ```bash
    NVIDIA_API_KEY=your-api-key-here
 
 6. **Run the Application**
+
    ```bash
-      python app.py
+      streamlit run app.py
+
 
 7. **Open your browser and go to http://localhost:8501 to view the running Streamlit app.**
