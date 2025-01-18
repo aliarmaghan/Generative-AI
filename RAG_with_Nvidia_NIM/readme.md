@@ -74,6 +74,6 @@ To get started, follow these steps to install the project and set up the environ
 
 6. **Run the Application**
    ```bash
-   python app.py
+      python app.py
 
 7. **Open your browser and go to http://localhost:8501 to view the running Streamlit app.**
