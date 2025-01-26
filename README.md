@@ -1,5 +1,7 @@
-# Generative AI Projects Hub 🚀 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue)](https://www.linkedin.com/in/md-ali-armaghan/)&nbsp;[![Twitter](https://img.shields.io/badge/X-Follow-black)](https://x.com/armaghan78)&nbsp;[![Instagram](https://img.shields.io/badge/Instagram-Follow-E4405F)](https://www.instagram.com/be_armaghan?igsh=bjd2cDBtcW5mdTht)
-
+ [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue)](https://www.linkedin.com/in/md-ali-armaghan/)&nbsp;&nbsp;
+[![Twitter](https://img.shields.io/badge/X-Follow-black)](https://x.com/armaghan78)&nbsp;&nbsp;
+[![Instagram](https://img.shields.io/badge/Instagram-Follow-E4405F)](https://www.instagram.com/be_armaghan?igsh=bjd2cDBtcW5mdTht)
+# Generative AI Projects Hub 🚀
 ![Generative AI Banner](https://via.placeholder.com/1920x400.png?text=Generative+AI+Showcase) <!-- Add your banner URL -->
 
 Welcome to **Generative AI Projects Hub**, a repository showcasing innovative Generative AI projects with a focus on Retrieval-Augmented Generation (RAG), AI-powered applications, and real-world use cases. Dive into cutting-edge solutions designed for researchers, developers, and AI enthusiasts.
@@ -81,7 +83,7 @@ This project is licensed under the MIT License. See the `LICENSE` file for detai
 
 ## 📧 Contact
 **Md Ali Armaghan**  
-[![Email](https://img.shields.io/badge/Email-aliarmaghan@example.com-blue?logo=gmail)](mailto:aliarmaghan@example.com)  
+[![Email](https://img.shields.io/badge/Email-aliarmaghan78@gmail.com-blue?logo=gmail)](mailto:aliarmaghan@example.com)  
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Profile-blue?logo=linkedin)](https://www.linkedin.com/in/md-ali-armaghan/)
 
 ---
