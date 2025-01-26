@@ -1,0 +1,17 @@
+{
+    "nodes": [
+        {"name": "categorize", "type": "classification"},
+        {"name": "analyze_sentiment", "type": "sentiment_analysis"},
+        {"name": "handle_technical", "type": "response_generation"},
+        {"name": "handle_billing", "type": "response_generation"},
+        {"name": "handle_general", "type": "response_generation"},
+        {"name": "escalate", "type": "escalation"}
+    ],
+    "edges": [
+        {"from": "categorize", "to": "analyze_sentiment"},
+        {"from": "analyze_sentiment", "to": "handle_technical", "condition": "category == 'Technical'"},
+        {"from": "analyze_sentiment", "to": "handle_billing", "condition": "category == 'Billing'"},
+        {"from": "analyze_sentiment", "to": "handle_general", "condition": "category == 'General'"},
+        {"from": "analyze_sentiment", "to": "escalate", "condition": "sentiment == 'Negative'"}
+    ]
+}
