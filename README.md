@@ -1,7 +1,7 @@
- [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue)](https://www.linkedin.com/in/md-ali-armaghan/)&nbsp;&nbsp;
-[![Twitter](https://img.shields.io/badge/X-Follow-black)](https://x.com/armaghan78)&nbsp;&nbsp;
-[![Instagram](https://img.shields.io/badge/Instagram-Follow-E4405F)](https://www.instagram.com/be_armaghan?igsh=bjd2cDBtcW5mdTht)&nbsp;&nbsp;
-[![Share on Twitter](https://img.shields.io/badge/Share-Twitter-1DA1F2)](https://twitter.com/intent/tweet?text=Explore%20Md%20Ali%20Armaghan%27s%20Generative%20AI%20projects%20%E2%9A%99%EF%B8%8F%20https://github.com/aliarmaghan/Generative-AI)&nbsp;&nbsp;
+ [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue)](https://www.linkedin.com/in/md-ali-armaghan/)&nbsp;
+[![Twitter](https://img.shields.io/badge/X-Follow-black)](https://x.com/armaghan78)&nbsp;
+[![Instagram](https://img.shields.io/badge/Instagram-Follow-E4405F)](https://www.instagram.com/be_armaghan?igsh=bjd2cDBtcW5mdTht)&nbsp;
+[![Share on Twitter](https://img.shields.io/badge/Share-Twitter-1DA1F2)](https://twitter.com/intent/tweet?text=Explore%20Md%20Ali%20Armaghan%27s%20Generative%20AI%20projects%20%E2%9A%99%EF%B8%8F%20https://github.com/aliarmaghan/Generative-AI)&nbsp;
 [![Star on GitHub](https://img.shields.io/github/stars/aliarmaghan/Generative-AI?style=social)](https://github.com/aliarmaghan/Generative-AI/stargazers)
 
 >If you find this repository helpful, please consider giving it a star⭐️
