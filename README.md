@@ -38,6 +38,20 @@ Welcome to **Generative AI Projects Hub**, a repository showcasing innovative Ge
 | **Salary Range Prediction**      | ML-powered solution to estimate salary ranges for job postings                               | Coming Soon                                                                                                 | [GitHub](https://github.com/aliarmaghan/Generative-AI)                                                     |
 | **YouTube to Blog Conversion**   | Transform YouTube videos into structured blog pages using CrewAI                             | Coming Soon                                                                                                 | [GitHub](https://github.com/aliarmaghan/Generative-AI)                                                     |
 
+
+## 📂 Projects
+
+| Project                          | Description                                                                                  | Live Demo                                                                                                   | Repository                                                                                                 |
+|----------------------------------|----------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|
+| **Summarize Text From Youtube or Website** | Gen AI-powered tool to summarize YouTube videos and websites using LangChain and Groq LLM    | [![Live Demo](https://img.shields.io/badge/Demo-Live-brightgreen)](https://summarize-content.streamlit.app/) | [GitHub](https://github.com/aliarmaghan/Generative-AI/tree/main/summarize_text)                             |
+| **OpenAI Chatbots Web App**      | Interactive chatbot application powered by OpenAI's APIs                                     | [![Live Demo](https://img.shields.io/badge/Demo-Live-brightgreen)](https://openai-chatbots.streamlit.app/)  | [GitHub](https://github.com/aliarmaghan/Generative-AI/tree/main/Chatbots/OpenAI_Chatbot)                                                     |
+| **Q&A Retrieval Augmented Generation** | RAG-based Q&A application leveraging LangChain and vector databases                          | [![Live Demo](https://img.shields.io/badge/Demo-Live-brightgreen)](https://q-a-rag.streamlit.app/)          | [GitHub](https://github.com/aliarmaghan/Generative-AI/tree/main/Chatbots/RAG_Document_Q%26A)                                                     |
+| **OS Chatbot Web App**           | Open Source Multiple model knowledge assistant                                                         | [![Live Demo](https://img.shields.io/badge/Demo-Live-brightgreen)](https://os-chatbot.streamlit.app/)       | [GitHub](https://github.com/aliarmaghan/Generative-AI/tree/main/Chatbots/Ollama_Chatbot)                                                     |
+| **Resume Matching Using NLP**    | Intelligent system to match resumes to job descriptions using generative AI and CrewAI       | Coming Soon                                                                                                 | [GitHub](https://github.com/aliarmaghan/Generative-AI)                                                     |
+| **Salary Range Prediction**      | ML-powered solution to estimate salary ranges for job postings                               | Coming Soon                                                                                                 | [GitHub](https://github.com/aliarmaghan/Generative-AI)                                                     |
+| **YouTube to Blog Conversion**   | Transform YouTube videos into structured blog pages using CrewAI                             | Coming Soon                                                                                                 | [GitHub](https://github.com/aliarmaghan/Generative-AI)                                                     |
+
+
 ## ⚡ Installation
 ```bash
 # Clone the repository
