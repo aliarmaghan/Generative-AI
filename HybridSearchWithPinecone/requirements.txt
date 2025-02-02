@@ -1,0 +1,9 @@
+langchain_groq
+langchain_huggingface
+streamlit
+ipykernel
+python-dotenv
+langchain_community
+pinecone-client
+pinecone-text
+pinecone-notebooks
