@@ -19,7 +19,7 @@ A Streamlit-based application that allows users to interact with various SQL dat
 
 ## Prerequisites
 
-- Python 3.x
+- Python 3.10
 - Groq API Key
 - Required database drivers:
   - ODBC Driver 17 for SQL Server (if using SQL Server)
