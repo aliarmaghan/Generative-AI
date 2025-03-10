@@ -2,6 +2,9 @@
 
 A Streamlit-based application that allows users to interact with various SQL databases using natural language queries powered by LangChain and Groq LLM.
 
+## Live Demo
+🚀 Try it out: [Chat with SQL Database Demo](https://chatsqldb.streamlit.app/)
+
 ## Features
 
 - Support for multiple database types:
