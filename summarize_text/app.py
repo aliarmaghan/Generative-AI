@@ -19,7 +19,7 @@ st.subheader('Summarize URL')
 import os
 from dotenv import load_dotenv
 load_dotenv()
-llm = ChatGroq(groq_api_key=os.getenv("GROQ_API_KEY"),model="Qwen 2.5 Coder 32B")
+llm = ChatGroq(groq_api_key=os.getenv("GROQ_API_KEY"),model="qwen-qwq-32b")
 youtube_api_key=os.getenv("YOUTUBE_API_KEY")
 generic_url=st.text_input("URL",label_visibility="collapsed")
 
