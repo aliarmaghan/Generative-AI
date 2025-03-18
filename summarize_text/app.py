@@ -132,13 +132,14 @@ if st.button("Summarize"):
             with st.spinner("Waiting..."):
                 ## loading the website or yt video data
                 if "youtube.com" in generic_url:
+                    st.spinner("Loading data from youtube")
                     loader=YoutubeLoader.from_youtube_url(generic_url,add_video_info=False,language="en")
                 else:
+                    st.spinner("Loading data from website")
                     loader=UnstructuredURLLoader(urls=[generic_url],ssl_verify=False,
                                                  headers={"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 13_5_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"})
-                
                 docs=loader.load()
-                st.write(docs)
+                st.success("Data loaded successfully")
                 # Chain For Summarization
                 chain=load_summarize_chain(llm,chain_type="stuff",prompt=pro_prompt)
                 output_summary=chain.run(docs)
