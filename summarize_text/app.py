@@ -141,7 +141,7 @@ if st.button("Summarize"):
                 st.write(docs)
                 # Chain For Summarization
                 chain=load_summarize_chain(llm,chain_type="stuff",prompt=pro_prompt)
-                output_summary=chain.invoke(docs)
+                output_summary=chain.run(docs)
             
                 st.success(output_summary)
         
