@@ -138,7 +138,7 @@ if st.button("Summarize"):
                                                  headers={"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 13_5_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"})
                 
                 docs=loader.load()
-                st.write(docs[0].page_content)
+                st.write(docs)
                 # Chain For Summarization
                 chain=load_summarize_chain(llm,chain_type="stuff",prompt=pro_prompt)
                 output_summary=chain.run(docs)
